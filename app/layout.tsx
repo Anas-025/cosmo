@@ -1,3 +1,5 @@
+import Menu from "@/components/menu/Menu";
+import { Navbar } from "@/components/navbar/Navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} dark`}>
+        <div className="flex flex-col h-[100vh]">
+          <Navbar />
+          <div className="flex grow shrink-0">
+            <Menu />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
